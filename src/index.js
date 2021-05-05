@@ -11,15 +11,20 @@ const Theme = {
   DARK: 'dark-theme',
 };
 
-if(localStorage.getItem('my-theme')) {
-  body.classList.add(localStorage.getItem('my-theme'));
-} else {
-  body.classList.add(Theme.LIGHT);
-}
+// if(localStorage.getItem('my-theme')) {
+//   body.classList.add(localStorage.getItem('my-theme'));
+// } else {
+//   body.classList.add(Theme.LIGHT);
+// }
 
-if (localStorage.getItem('my-theme') === Theme.DARK) {
-  checkbox.checked = true;
-}
+// if (localStorage.getItem('my-theme') === Theme.DARK) {
+//   checkbox.checked = true;
+// }
+
+const myTheme = localStorage.getItem('my-theme') || Theme.LIGHT;
+body.classList.add(myTheme);
+
+checkbox.checked = myTheme === Theme.DARK;
 
 function changeTheme() {
   if (checkbox.checked) {
